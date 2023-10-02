@@ -1,0 +1,34 @@
+pipeline {
+    agent any
+    stages {
+        stage("Build") {
+            steps {
+                echo "Building the app..."
+            }
+        }
+        stage("Test") {
+            steps {
+                echo "Testing the app..."
+            }
+        }
+        stage("Deploy") {
+            steps {
+                echo "Deploying the app..."
+            }
+        }
+    }
+    post {
+        always {
+            echo "This will always run regardless of the completion status"
+        }
+        success {
+            echo "This will run if the build succeeded"
+        }
+        failure {
+            echo "This will run if the job failed"
+        }
+        unstable {
+            echo "This will run if the completion status was 'unstable', usually by test failures"
+        }
+    }
+}
