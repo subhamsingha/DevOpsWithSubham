@@ -1,0 +1,59 @@
+pipeline {
+    agent any
+    stages {
+        stage('Setup parameters') {
+            steps {
+                script { 
+                    properties([
+                        parameters([
+                            choice(
+                                choices: ['QA','STAGING','PROD'], 
+                                name: 'ENVIRONMENT'
+                            ),
+                            booleanParam(
+                                defaultValue: true, 
+                                description: '', 
+                                name: 'BOOLEAN'
+                            ),
+                            text(
+                                defaultValue: '''
+                                this is a multi-line 
+                                string parameter example
+                                ''', 
+                                 name: 'MULTI-LINE-STRING'
+                            ),
+                            string(
+                                defaultValue: 'scriptcrunch', 
+                                name: 'STRING-PARAMETER', 
+                            )
+                        ])
+                    ])
+                }
+            }
+        }
+        stage('Deploy to Production'){
+            when {
+                expression {
+                    return params.ENVIRONMENT == 'PROD'
+                }
+            }
+            steps {
+                   sh """
+                    echo "deploy to production"
+                    """
+            }
+        }
+        stage('Deploy to QA env'){
+            when {
+                expression {
+                    return params.ENVIRONMENT == 'QA'
+                }
+            }
+            steps {
+                   sh """
+                    echo "deploy to production"
+                    """
+            }
+        }
+    }   
+}
