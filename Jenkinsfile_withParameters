@@ -51,7 +51,7 @@ pipeline {
             }
             steps {
                    sh """
-                    echo "deploy to production"
+                    echo "deploy to QA"
                     """
             }
         }
