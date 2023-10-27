@@ -1,0 +1,114 @@
+What is Git?
+Git is a popular version control system.
+
+It is used for:
+---------------
+Tracking code changes
+Tracking who made changes
+Coding collaboration
+
+
+What does Git do?
+
+Manage projects with Repositories
+Clone a project to work on a local copy
+Control and track changes with Staging and Committing
+Branch and Merge to allow for work on different parts and versions of a project
+Pull the latest version of the project to a local copy
+Push local updates to the main project
+
+Working with Git
+-----------------
+Initialize Git on a folder, making it a Repository
+Git now creates a hidden folder to keep track of changes in that folder
+When a file is changed, added or deleted, it is considered modified
+You select the modified files you want to Stage
+The Staged files are Committed, which prompts Git to store a permanent snapshot of the files
+Git allows you to see the full history of every commit.
+You can revert back to any previous commit.
+Git does not store a separate copy of every file in every commit, but keeps track of changes made in each commit!
+
+
+Why Git?
+
+Over 70% of developers use Git!
+Developers can work together from anywhere in the world.
+Developers can see the full history of the project.
+Developers can revert to earlier versions of a project.
+
+What is GitHub?
+
+Git is not the same as GitHub.
+GitHub makes tools that use Git.
+GitHub is the largest host of source code in the world, and has been owned by Microsoft since 2018.
+In this tutorial, we will focus on using Git with GitHub.
+
+Installing/Configure Git on Linux​
+---------------------------------
+Yum install git –y​
+
+git –version​
+
+Configure Git​
+
+git config --global user.name "subham singha"​
+
+git config --global user.email "singhaofficials@gmail.com"​
+
+Please note, we are using global to set the username and e-mail for every repository on your computer.If you want to set the username/e-mail for just the current repo, you can remove global​
+
+​
+Working with Git
+-----------------
+Create Git Folder
+Initialize Git
+Add new files to the folder
+
+
+Create New Git Files
+--------------------
+
+Now Git is aware of the file, but has not added it to our repository!
+
+Files in your Git repository folder can be in one of 2 states:
+
+Tracked - files that Git knows about and are added to the repository
+Untracked - files that are in your working directory, but not added to the repository
+
+
+When you first add files to an empty repository, they are all untracked. To get Git to track them, you need to stage them, or add them to the staging environment.
+
+
+Git Staging Environment
+------------------------
+One of the core functions of Git is the concepts of the Staging Environment, and the Commit.
+
+As you are working, you may be adding, editing and removing files. But whenever you hit a milestone or finish a part of the work, you should add the files to a Staging Environment.
+
+Staged files are files that are ready to be committed to the repository you are working on. You will learn more about commit shortly.
+
+git add <filename>
+git status
+
+git add command more than one file-> git add --all
+
+Git Commit
+-------------
+We are ready move from stage to commit for our repo.
+When we commit, we should always include a message.
+
+git commit -m "First commit"
+
+Git Commit Log
+---------------
+To view the history of commits for a repository, you can use the log command.
+
+git log
+
+Git Branch
+-----------
+To check for working branch -> git branch
+To checkout/switch to another branch -> git checkout master
+To create new branch ->  git checkout -b emergency-fix
+
+
