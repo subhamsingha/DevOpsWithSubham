@@ -159,3 +159,108 @@ GitHub Fork
 -----------
 A fork is a copy of a repository. This is useful when you want to contribute to someone else's project or start your own project based on theirs.
 fork is not a command in Git, but something offered in GitHub.
+
+
+Git Revert
+----------
+revert is the command we use when we want to take a previous commit and add it as a new commit, keeping the log intact.
+
+git commit -m "Just a regular update, definitely no accidents here..."
+
+
+Git Revert Find Commit in Log
+First thing, we need to find the point we want to return to. To do that, we need to go through the log.
+
+To avoid the very long log list, we are going to use the --oneline option, which gives just one line per commit showing:
+
+The first seven characters of the commit hash
+the commit message
+
+git log --oneline
+
+We want to revert to the previous commit.....
+
+Git Revert HEAD
+--------------
+We revert the latest commit using git revert HEAD (revert the latest change,  and then commit), adding the option --no-edit to skip the commit message editor (getting the default revert message)
+
+git log --oneline
+git revert HEAD --no-edit
+
+Note: To revert to earlier commits, use git revert HEAD~x (x being a number. 1 going back one more, 2 going back two more, etc.)
+
+
+Git Reset
+----------
+reset is the command we use when we want to move the repository back to a previous commit, discarding any changes made after that commit.
+
+First thing, we need to find the point we want to return to. To do that, we need to go through the log.
+
+git log --oneline
+
+We reset our repository back to the specific commit using git reset commithash (commithash being the first 7 characters of the commit hash we found in the log)
+
+git reset <commitid>
+git log --oneline
+
+================================GIT ADVANCED CONCEPT=================================
+
+Git Ignore
+-----------
+When sharing your code with others, there are often files or parts of your project, you do not want to share.
+
+Examples
+
+log files
+temporary files
+hidden files
+personal files
+etc.
+Git can specify which files or parts of your project should be ignored by Git using a .gitignore file.
+
+Git will not track files and folders specified in .gitignore. However, the .gitignore file itself IS tracked by Git.
+
+
+Git Security
+=============
+Up to this point, we have used HTTPS to connect to our remote repository.
+
+HTTPS will usually work just fine, but you should use SSH if you work with unsecured networks. And sometimes, a project will require that you use SSH.
+
+
+What is SSH ?
+
+SSH is a secure shell network protocol that is used for network management, remote file transfer, and remote system access.
+SSH uses a pair of SSH keys to establish an authenticated and encrypted secure network protocol. It allows for secure remote communication on unsecured open networks.
+
+SSH keys are used to initiate a secure "handshake". When generating a set of keys, you will generate a "public" and "private" key.
+The "public" key is the one you share with the remote party. Think of this more as the lock.
+The "private" key is the one you keep for yourself in a secure place. Think of this as the key to the lock.
+SSH keys are generated through a security algorithm. It is all very complicated, but it uses prime numbers, and large random numbers to make the public and private key.
+
+It is created so that the public key can be derived from the private key, but not the other way around.
+
+Generating an SSH Key Pair
+--------------------------
+ssh-keygen -t rsa -b 4096
+
+GitHub Add SSH
+--------------
+Copy the SSH Public Key whatever you generated
+
+Go to GitHub, navigate to the top left corner, click your profile, and select: Settings
+
+Then select "SSH and GPG keys". and click the "New SSH key" button
+
+Select a title, and paste the public SSH key into the "Key" field, and click "Add SSH Key"
+You will be prompted to supply your GitHub password.
+
+Now we can test our connection via SSH to GitHub
+ssh -T git@github.com
+
+Add New GitHub SSH Remote
+-------------------------
+Now we can add a new remote via SSH to our Git.
+git remote add ssh-origin <ssh url from github>
+
+Note: You can change a remote origin from HTTPS to SSH with the command: git remote set-url remote-name git@github.com:username/repository.git
