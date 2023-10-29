@@ -188,6 +188,7 @@ git log --oneline
 git revert HEAD --no-edit
 
 Note: To revert to earlier commits, use git revert HEAD~x (x being a number. 1 going back one more, 2 going back two more, etc.)
+Note: You can think of the HEAD as the "current branch". When you switch branches with git checkout, the HEAD revision changes to point to the tip of the new branch.
 
 
 Git Reset
