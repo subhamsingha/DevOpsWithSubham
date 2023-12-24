@@ -1,6 +1,6 @@
 ---
 - name: installing httpd
-  hosts: webservers
+  hosts: all
   become: true
   tasks: 
   - name: installing httpd package 
