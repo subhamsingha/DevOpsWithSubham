@@ -1,6 +1,6 @@
 ---
 - name: installing packages
-  hosts: webservers
+  hosts: all
   become: true
   tasks:
   - name: installing telnet
