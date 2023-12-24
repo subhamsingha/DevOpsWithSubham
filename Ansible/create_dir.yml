@@ -1,6 +1,6 @@
 ---
-- name: playbook to create directory
-  hosts: webservers
+- name: playbook to create file
+  hosts: all
   become: true
   tasks:
   - name: creating a file
