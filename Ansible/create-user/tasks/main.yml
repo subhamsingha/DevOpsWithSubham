@@ -1,0 +1,7 @@
+---
+# tasks file for setup-apache
+#
+
+- name: creating user
+  user:
+    name: "{{ user }}"
