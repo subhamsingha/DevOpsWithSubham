@@ -1,0 +1,7 @@
+FROM centos
+
+RUN yum -y install httpd 
+
+ADD https://github.com/mdn/beginner-html-site-styled/archive/gh-pages.zip /var/www/html/code.zip
+
+CMD apachectl -DFOREGROUND
