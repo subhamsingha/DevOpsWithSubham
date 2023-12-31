@@ -10,6 +10,8 @@ LABEL maintainer=SubhamSingha
 LABEL vendor=companyB
 LABEL random=yay
 
+MAINTAINER singhaofficials@gmail.com
+
 ENV HTML beginner-html-site-styled
 
 WORKDIR /var/www/html/
