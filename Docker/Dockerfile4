@@ -1,8 +1,11 @@
-FROM nginx:alpine
+FROM centos
 
-ENV webfile /usr/share/nginx/html/test.html
+RUN yum -y install httpd unzip
 
-RUN \ 
-  echo "1" >> $webfile && \
-  echo "2" >> $webfile && \
-  echo "3" >> $webfile
+ENV HTML beginner-html-site-styled 
+
+ADD https://github.com/mdn/$HTML/archive/gh-pages.zip /var/www/html/code.zip
+
+RUN cd /var/www/html && mv unzip code.zip && mv /var/www/html/$HTML-gh-pages/* /var/www/html
+
+CMD apachectl -DFOREGROUND
