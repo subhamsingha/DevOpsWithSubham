@@ -2,7 +2,7 @@ FROM centos:7
 
 ARG user=application
 
-ARG httpd_package
+ARG httpd_package=httpd
 
 RUN yum -y install $httpd_package unzip
 
