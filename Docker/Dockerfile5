@@ -7,8 +7,7 @@ ARG httpd_package
 RUN yum -y install $httpd_package unzip
 
 LABEL maintainer=SubhamSingha
-LABEL vendor=companyB
-LABEL random=yay
+LABEL Company=google
 
 MAINTAINER singhaofficials@gmail.com
 
