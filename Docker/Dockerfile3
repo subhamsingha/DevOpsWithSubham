@@ -1,4 +1,4 @@
-FROM centos
+FROM amazonlinux
 
 RUN yum -y install httpd unzip 
 
@@ -6,4 +6,4 @@ ADD https://github.com/mdn/beginner-html-site-styled/archive/gh-pages.zip /var/w
 
 RUN cd /var/www/html && mv unzip code.zip && mv /var/www/html/beginner-html-site-styled-gh-pages/* /var/www/html
 
-CMD apachectl -DFOREGROUND
+CMD ["/usr/sbin/httpd","-D","FOREGROUND"]
