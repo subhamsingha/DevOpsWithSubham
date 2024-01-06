@@ -2,4 +2,4 @@ FROM amazonlinux
 
 RUN yum -y install httpd 
 
-CMD apachectl -DFOREGROUND
+CMD ["/usr/sbin/httpd","-D","FOREGROUND"]
