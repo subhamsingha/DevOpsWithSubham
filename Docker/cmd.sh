@@ -1,4 +1,4 @@
 #!/bin/bash
 
 echo "Starting httpd..."
-apachectl -DFOREGROUND
+/usr/sbin/httpd -DFOREGROUND
