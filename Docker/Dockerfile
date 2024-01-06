@@ -1,4 +1,4 @@
-FROM centos:7
+FROM amazonlinux
 
 RUN yum -y install httpd 
 
