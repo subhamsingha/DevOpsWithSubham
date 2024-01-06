@@ -1,7 +1,7 @@
-FROM centos
+FROM amazonlinux
 
 RUN yum -y install httpd 
 
 COPY html-code /var/www/html
 
-CMD apachectl -DFOREGROUND
+CMD ["/usr/sbin/httpd","-D","FOREGROUND"]
