@@ -1,3 +1,4 @@
 #DevOps #Kubernetes # EKS
 
-![image](https://github.com/subhamsingha/DevOpsWithSubham/assets/73743186/68a3ebfa-8c53-43ef-87e4-9af39c58fcf8)
+![image](https://github.com/subhamsingha/DevOpsWithSubham/assets/73743186/6bec7bed-d23f-43cd-82ae-1ced011cf3ad)
+
