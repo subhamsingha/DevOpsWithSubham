@@ -1,4 +1,4 @@
-FROM centos as build
+FROM amazonlinux as build
 
 RUN fallocate -l 10M /opt/1
 
