@@ -1,5 +1,7 @@
 FROM amazonlinux as build
 
+RUN yum -y install util-linux
+
 RUN fallocate -l 10M /opt/1
 
 RUN fallocate -l 10M /opt/2
