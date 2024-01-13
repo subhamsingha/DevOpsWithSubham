@@ -27,4 +27,4 @@ kubectl get nodes -o wide
 http://<Worker-Node-Public-IP>:31233
 ```
 ## API References
-- **Deployment:** https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#deployment-v1-apps
+- **Deployment:** [https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#deployment-v1-apps](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/)https://kubernetes.io/docs/concepts/workloads/controllers/deployment/
