@@ -23,7 +23,7 @@ metadata: # Dictionary
 spec:
   containers: # List
     - name: myapp
-      image: stacksimplify/kubenginx:1.0.0
+      image: ssingha/kubenginx:1.0.0
       ports:
         - containerPort: 80
 ```
