@@ -72,6 +72,7 @@ kubectl get nodes -o wide
 http://<WorkerNode-Public-IP>:<NodePort>
 http://<WorkerNode-Public-IP>:31231
 ```
+*** If Application is not coming up , please check the security group of eksctl-eksdemo1-nodegroup-eksdemo1-ng-public1-remoteAccess. Please add All Traffic in Inbound Rule.***
 
 ## API Object References
 -  **Pod**: https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/
