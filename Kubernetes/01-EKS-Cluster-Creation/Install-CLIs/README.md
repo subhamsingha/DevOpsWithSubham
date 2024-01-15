@@ -33,6 +33,15 @@ aws ec2 describe-vpcs
 - This will help us to get the exact Kubectl client version based on our EKS Cluster version. You can use the below documentation link to download the binary.
 - Reference: https://docs.aws.amazon.com/eks/latest/userguide/install-kubectl.html
 
+Installing kubectl on Linux (Version 1.28)
+==========================================
+curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/1.28.5/2024-01-04/bin/linux/amd64/kubectl
+chmod +x ./kubectl
+mkdir -p $HOME/bin && cp ./kubectl $HOME/bin/kubectl && export PATH=$HOME/bin:$PATH
+echo 'export PATH=$HOME/bin:$PATH' >> ~/.bashrc
+kubectl version --client
+
+
 ## Step-03: Install eksctl CLI
 - For windows and linux OS, you can refer below documentation link. 
 - **Reference:** https://docs.aws.amazon.com/eks/latest/userguide/eksctl.html#installing-eksctl
