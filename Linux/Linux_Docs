@@ -1,0 +1,560 @@
+Module:1 Understanding Linux concepts
+
+What is Linux
+ 
+
+Unix vs. Linux
+Linux is mostly free and Linux is open source
+Unix is mostly used by Sun as Solaris, HP-UX, AIX etc.
+Linux is used by many developers community or companies (Redhat, CentOS, Debian) etc.
+Unix comparatively supports very fewer File systems
+Linux can be installed on a wide variety of computer hardware, ranging from mobile phones, tablets, video game consoles, to mainframes and supercomputers.
+
+
+Linux Distributions
+Redhat
+CentOS
+Federa
+Suse
+Debian
+Ubuntu
+
+
+Linux users
+World e-commerce leaders, including Amazon, eBay, PayPal, and Walmart run their platform on Linux Other fortune 500 companies e.g. Google, IBM, McDonalds, Facebook etc.
+Entertainment industries (Cinemas, Production houses etc.)
+Financial Institutes e.g. NYSE
+Health Care
+US Government and Agencies (National, State, Federal and International)
+
+
+
+
+Module:2 System Access and File System
+
+Important Things to Remember in Linux 
+--------------------------------------------------------
+• Linux has super-user account called root 
+• root is the most powerful account that can create, modify, delete accounts and make changes to system configuration files 
+• Linux is case-sensitive system (ABC is NOT same as abc)
+• Avoid using spaces when creating files and directories 
+• Linux kernel is not an operating system. It is a small software within Linux operating system that takes commands from users and pass them to system hardware or peripherals 
+• Linux is mostly CLI not GUI
+ • Linux is very flexible as compared to other operating systems.
+
+
+
+
+
+
+
+
+Access to Linux System
+  (SSH 192.168.1.5)
+ 
+
+Download & Install Putty
+Putty is a software which allows you to connect from a Windows system to Linux system remotely
+ 
+
+
+
+
+
+
+
+
+
+Command Prompts and Getting Prompts Back
+ 
+
+
+Introduction to Filesystem
+What is a Filesystem? 
+It is a system used by an operating system to manage files. The system controls how data is saved or retrieved.
+
+ 
+
+Operating system stores files and directories in an organized and structured way 
+• System configuration file = Folder A 
+• User files = Folder B 
+• Log files = Folder C 
+• Commands or scripts = Folder D and so on 
+
+• There are many different types of filesystems. In general, improvements have been made to filesystems with new releases of operating systems and each new filesystem has been given a different name e.g. ext3, ext4, xfs, NTFS, FAT etc.
+File System Structure
+ 
+
+File System Structure and its Description
+
+/boot Contains file that is used by the boot loader (grub.cfg) 
+/root root user home directory. It is not same as / /dev System devices (e.g. disk, cdrom, speakers, flashdrive, keyboard etc.) 
+/etc Configuration files /bin → /usr/bin Everyday user commands 
+/sbin → /usr/sbin System/filesystem commands 
+/opt Optional add-on applications (Not part of OS apps) /proc Running processes (Only exist in Memory)
+ /lib → usr/lib C programming library files needed by commands and apps strace -e open pwd 
+/tmp Directory for temporary files /home Directory for user 
+/var System logs 
+/run System daemons that start very early (e.g. systemd and udev) to store temporary runtime files like PID files 
+/mnt To mount external filesystem. (e.g. NFS) 
+/media For cdrom mounts.
+
+Navigating File System
+When navigating a UNIX filesystem, there are a few important commands: 
+"cd” "pwd” "ls“ 
+• "cd" stands for change directory. It is the primary command for moving you around the filesystem. • “pwd” stands for print working directory. It tells you where you current location is. 
+• “ls” stands for list. It lists all the directories/files within a current working directory 
+
+Linux File or Directory Properties
+Each file or directory in Linux has detail information or properties
+ 
+
+ 
+
+What is Root?
+There are 3 types of root on Linux system 
+1. Root account: root is an account or a username on Linux machine and it is the most powerful account which has access to all commands and files 
+2. Root as /: the very first directory in Linux is also referred as root directory 
+3. Root home directory: the root user account also has a directory located in /root which is called root home directory
+
+
+File System Paths
+There are two paths to navigate to a filesystem 
+✓Absolute Path 
+✓Relative Path 
+
+• An absolute path always begins with a "/". This indicates that the path starts at the root directory. An example of an absolute path is
+( cd /var/log/httpd )
+• A relative path does not begin with a "/". It identifies a location relative to your current position. An example of a relative path is: 
+(cd /var cd log cd httpd)
+
+
+Creating Files and Directories
+• Creating Files 
+✓touch 
+✓cp
+ ✓vi 
+• Creating Directories 
+✓mkdir
+
+Copying Directories
+==============================
+ Command to copy a directory
+ • cp 
+To copy a directory on Linux, you have to execute the “cp” command with the “-R” option for recursive and specify the source and destination directories to be copied 
+Cp -R <source_folder> <destination_folder>
+
+Find Files and Directories
+Two main commands are used to find files/directories
+->find
+-> locate
+
+Module:3 Linux Fundamentals
+
+File Permissions
+----------------------------
+• UNIX is a multi-user system. Every file and directory in your account can be protected
+from or made accessible to other users by changing its access permissions. Every user has
+responsibility for controlling access to their files.
+• Permissions for a file or directory may be restricted to by types
+• There are 3 type of permissions
+• r - read
+• w - write
+• x - exeawke = running a program
+• Each permission (rwx) can be controlled at three levels:
+• u - user = yourself
+• g - group = can be people in the same project
+• o - other = everyone on the system
+• File or Directory permission can be displayed by running ls –l command
+            • -rwxrwxrwx
+• Command to change permission
+            • chmod
+
+
+Permission Using Numeric Mode
+ 
+
+
+ 
+
+
+File Ownership
+================================
+• There are 2 owners of a file or directory
+• User and group
+• Command to change file ownership
+• chown and chgrp
+• chown changes the ownership of a file
+• chgrp changes the group ownership of a file
+• Recursive ownership change option (Cascade)
+• -R
+
+
+
+Adding Text to Files (Redirects)
+----------------------------------------------------
+• 3 Simple ways to add text to a file
+• vi
+• Redirect command output > or >>
+• echo > or >>
+
+Input and Output Redirects
+
+• There are 3 redirects in Linux
+1. Standard input (stdin) and it has file descriptor number as 0
+2. Standard output (stdout) and it has file descriptor number as 1
+3. Standard error (stderr) and it has file descriptor number as 2
+• Output (stdout) - 1
+• By default when running a command its output goes to the terminal
+• The output of a command can be routed to a file using > symbol
+• E.g. ls -l > listings
+pwd > findpath
+• If using the same file for additional output or to append to the same file then use >>
+• E.g. ls –la >> listings
+echo “Hello World” >> findpath. 
+
+Input (stdin) - 0
+• Input is used when feeding file contents to a file
+• E.g. cat < listings
+mail –s “Office memo” allusers@abc.com < memoletter
+• Error (stderr) - 2
+• When a command is executed we use a keyboard and that is also considered (stdin -0)
+• That command output goes on the monitor and that output is (stdout – 1)
+• If the command produced any error on the screen then it is considered (stderr – 2)
+• We can use redirects to route errors from the screen
+• E.g ls –l /root 2> errorfile
+telnet localhost 2> errorfile.
+
+
+File Maintenance Commands
+cp
+• rm
+• mv
+• mkdir
+• rmdir or rm -r
+• chgrp
+• chown
+
+File Display Commands
+cat •more •less •head •tail
+
+Filters / Text Processors Commands
+
+cut • awk • grep and egrep • sort • uniq • wc
+
+
+
+cut - Text Processors Commands
+cut is a command line utility that allows you to cut parts of lines from specified files or piped data and print the result to standard output. It can be used to cut parts of a line by delimiter, byte position, and character
+
+• cut filename = Does not work
+• cut --version = Check version
+• cut –c1 filename = List one character
+• cut –c1,2,4 = Pick and chose character
+• cut –c1-3 filename = List range of characters
+• cut –c1-3,6-8 filename = List specific range of characters
+• cut –b1-3 filename = List by byte size
+• cut -d: -f 6 /etc/passwd = List first 6th column separated by :
+• cut -d: -f 6-7 /etc/passwd = List first 6 and 7th column separated by :
+• ls –l | cut –c2-4 = Only print user permissions of files/dir
+
+awk - Text Processors Commands
+
+• awk --version = Check version
+• awk ‘{print $1}’ file = List 1st field from a file
+• ls –l | awk ‘{print $1,$3}’ = List 1 and 3rd field of ls –l output
+• ls –l | awk ‘{print $NF}’ = Last field of the output
+• awk '/Jerry/ {print}' file = Search for a specific word
+• awk -F: '{print $1}' /etc/passwd = Ouput only 1st field of /etc/passwd
+• echo "Hello Tom" | awk '{$2="Adam"; print $0}‘ = Replace words field words
+• cat file | awk '{$2=“subham"; print $0}‘ = Replace words field words
+• awk 'length($0) > 15‘ file = Get lines that have more than 15 byte size
+• ls -l | awk '{if($9 == "seinfeld") print $0;}‘ = Get the field matching seinfeld in /home/subham
+• ls -l | awk '{print NF}‘ = Number of fields.
+
+
+grep/egrep - Text Processors Commands
+The grep command which stands for “global regular expression print,” processes text line by line and prints any lines which match a specified pattern
+
+• grep –-version OR grep --help = Check version or help
+• grep keyword file = Search for a keyword from a file
+• grep –c keyword file = Search for a keyword and count
+• grep –i KEYword file = Search for a keyword ignore case-sensitive
+• grep –n keyword file = Display the matched lines and their line numbers
+• grep –v keyword file = Display everything but keyword
+• grep keyword file | awk ‘{print $1}’ = Search for a keyword and then only give the 1st field
+• ls –l | grep Desktop = Search for a keyword and then only give the 1st field
+• egrep –i “keyword|keyword2” file = Search for 2 keywords.
+
+
+sort/uniq - Text Processors Commands
+
+• sort –-version OR sort --help = Check version or help
+• sort file = Sorts file in alphabetical order
+• sort –r file = Sort in reverse alphabetical order
+• sort –k2 file = Sort by field number
+• uniq file = Removes duplicates
+• sort file | uniq = Always sort first before using uniq their line numbers
+• sort file | uniq –c = Sort first then uniq and list count
+• sort file | uniq –d = Only show repeated lines.
+
+
+wc - Text Processors Commands
+
+• wc –-version OR wc --help = Check version or help
+• wc file = Check file line count, word count and byte count
+• wc –l file = Get the number of lines in a file
+• wc –w file = Get the number of words in a file
+• wc –b file = Get the number of bytes in a file
+• wc DIRECTORY = NOT allowed
+• ls –l | wc -l = Number of files
+• grep keyword | wc -l = Number of keyword lines.
+
+
+Compare Files
+
+• diff (Line by line) 
+Compress and un-Compress Files
+tar -cvzf abc.tar.gz abc
+tar -xvzf abc.tar.gz
+
+Truncate File Size (truncate)
+
+>filename
+truncate –s 10 filename
+
+Combining into a single File
+Multiple files can be combined into one and
+cat file1 file2 file3 > file4
+
+
+
+
+
+
+
+Module:4 Linux System Administration
+
+Linux File Editor
+• vi - Visual editor ---we will use this editor 
+• ed - Standard line editor
+• ex - Extended line editor
+• emacs - A full screen editor
+• pico - Beginner’s editor
+• vim - Advance version of vi 
+
+Vi Editor
+Most common keys:
+• i – insert
+• Esc – Escape out of any mode
+• r – replace
+• d – delete
+• :q! – quit without saving
+• :wq! – quit and save
+
+“sed” Command
+
+Replace a string in a file with a newstring
+• Find and delete a line
+• Remove empty lines
+• Remove the first or n lines in a file
+• To replace tabs with spaces
+• Show defined lines from a file
+
+Switch Users and sudo Access
+su – username  • sudo command
+Monitor Users
+• who • w • id
+
+System Utility Commands
+date • uptime • hostname • uname • which • cal • bc
+
+Process / Services Commands
+• systemctl or service • ps • top • kill • crontab
+
+systemctl command
+systemctl command is a new tool to control system services
+systemctl start|stop|status servicename.service (firewalld)
+systemctl enable servicename.service
+systemctl restart|reload servicename.service
+systemctl list-units --all 
+
+To add a service under systemctl management: Create a unit file in /etc/systemd/system/servicename.service
+
+“ps” command
+ps command stands for process status and it displays all the currently running processes in the Linux system
+ps -aef
+ps -aef | grep -I <process name>
+
+“top” command
+• top command is used to show the Linux processes and it provides a real-time view of the running system
+• This command shows the summary information of the system and the list of processes or threads which are currently managed by the Linux Kernel
+• When the top command is executed then it goes into interactive mode and you can exit out by hitting q
+• Usage: top
+PID: Shows task’s unique process id
+USER: Username of owner of task
+PR: The “PR” field shows the scheduling priority of the process from the perspective of the kernel
+NI: Represents a Nice Value of task. A Negative nice value implies higher priority, and positive Nice value means lower priority.
+VIRT: Total virtual memory used by the task
+RES: Memory consumed by the process in RAM
+SHR: Represents the amount of shared memory used by a task
+S: This field shows the process state in the single-letter form
+%CPU: Represents the CPU usage
+%MEM: Shows the Memory usage of task
+TIME+: CPU Time, the same as ‘TIME’, but reflecting more granularity through hundredths of a second.
+
+
+• top –u subham = shows tasks/processes by user owned
+• top then press c = shows commands absolute path
+• top then press k = kill a process by PID within top session
+• top then M and P = To sort all Linux running processes by Memory usage
+Please note:
+Top command refreshes the information every 3 seconds
+
+“kill” command
+• kill command is used to terminate processes manually 
+• It sends a signal which ultimately terminates or kills a particular process or group of processes
+	
+Most used signals are:
+kill PID = Kill a process with default signal
+kill -1 = Restart
+kill -2 = Interrupt from the keyboard just like Ctrl C
+kill -9 = Forcefully kill the process
+kill -15 = Kill a process graceful
+
+“crontab” command
+
+Crontab command is used to schedule tasks
+Usage:
+o crontab –e = Edit the crontab
+o crontab –l = List the crontab entries
+o crontab –r = Remove the crontab
+o crond = crontab daemon/service that manages scheduling
+
+ 
+
+
+
+System Monitoring
+• top
+• df
+• dmesg
+• iostat 1
+• netstat
+• free
+• cat /proc/cpuinfo
+• cat /proc/meminfo
+Terminal Control Keys
+The most common control keys are listed below:
+• CTRL-u - erase everything you've typed on the command line
+• CTRL-c - stop/kill a command
+• CTRL-z - suspend a command
+• CTRL-d - exit from an interactive program (signals end of data).
+
+Environment Variables
+How we can set environmental variable in Linux?
+To set the environment variables
+• export TEST=1
+• echo $TEST
+
+To set environment variable permanently
+• vi .bashrc
+• TEST=‘123’
+• export TEST
+
+To set global environment variable permanently
+• vi /etc/profile or /etc/bashrc
+• Test=‘123’
+• export TEST
+
+To view all environment variables
+• printevn OR env
+
+
+Module:5 Networking, Services and System Updates
+Network Commands
+ping • ifconfig • ifup or ifdown • netstat • tcpdump
+
+System Updates and Repos
+• yum (CentOS), apt-get (other Linux) •rpm (Redhat Package Manager)
+
+Download Files or Apps
+wget http://website.com/filename
+
+curl and ping Commands
+• Example in Linux:
+curl http://website.com/filename
+curl –O http://website.com/filename
+ping www.google.com
+
+FTP – File Transfer Protocol
+The File Transfer Protocol is a standard network protocol used for the transfer of
+computer files between a client and server on a computer network. FTP is built
+on a client-server model architecture using separate control and data
+connections between the client and the server. (Wikipedia)
+• Protocol = Set of rules used by computers to communicate
+• Default FTP Port = 21 
+ 
+
+
+SCP – Secure Copy Protocol
+The Secure Copy Protocol or “SCP” helps to transfer computer files securely from a local to a remote host. It is somewhat similar to the File Transfer Protocol “FTP”, but it adds security and authentication
+Protocol = Set of rules used by computers to communicate
+• Default SCP Port = 22 (same as SSH)
+
+SCP commands to transfer file to the remote server:
+• Login as yourself (subham)
+• touch jack
+• scp jack subham@192.168.1.x:/home/subham
+• Enter username and password
+
+
+ 
+
+
+System Upgrade/Patch Management
+yum update –y
+
+• yum update= Update will preserve them
+• yum upgrade = Upgrade will delete obsolete packages
+• yum history undo <id>
+
+Hostname/IP Lookup
+nslookup
+Module:6 Shell Scripting
+
+What is a Shell?
+• Its like a container
+• Interface between users and Kernel/OS
+• CLI is a Shell
+
+Shell (#!/bin/bash)
+• Comments (# comments)
+• Commands (echo, cp, grep etc.)
+• Statements (if, while, for etc.)
+
+Shell script should have executable permissions (e.g. -rwx r-x r-x)
+• Shell script has to be called from absolute path (e.g /home/userdir/script.bash)
+• If called from current location then ./script.bash 
+Input and Output of Script
+Read
+Echo
+
+1.	if-then Scripts
+2.	For Loop Scripts
+3.	do-while Scripts
+4.	Case Statement Scripts
+
+Aliases
+
+alias ls="ls -al“
+alias pl=“pwd; ls”
+alias tell=“whoami; hostname; pwd”
+alias dir="ls -l | grep ^d"
+alias lmar=“ls –l | grep Mar”
+alias wpa= "chmod a+w"
+alias d="df -h | awk '{print \$6}' | cut -c1-4" 
+
+
+
+
