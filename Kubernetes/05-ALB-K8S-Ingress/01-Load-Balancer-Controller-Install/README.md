@@ -128,7 +128,7 @@ aws iam create-policy \
     --policy-document file://iam_policy_latest.json
 
 ## Sample Output
-Kalyans-MacBook-Pro:08-01-Load-Balancer-Controller-Install kdaida$ aws iam create-policy \
+subham$ aws iam create-policy \
 >     --policy-name AWSLoadBalancerControllerIAMPolicy \
 >     --policy-document file://iam_policy_latest.json
 {
@@ -145,7 +145,7 @@ Kalyans-MacBook-Pro:08-01-Load-Balancer-Controller-Install kdaida$ aws iam creat
         "UpdateDate": "2022-02-02T04:51:21+00:00"
     }
 }
-Kalyans-MacBook-Pro:08-01-Load-Balancer-Controller-Install kdaida$ 
+subham$ 
 ```
 - **Important Note:** If you view the policy in the AWS Management Console, you may see warnings for ELB. These can be safely ignored because some of the actions only exist for ELB v2. You do not see warnings for ELB v2.
 
@@ -192,7 +192,7 @@ eksctl create iamserviceaccount \
 - **Sample Output**
 ```t
 # Sample Output for IAM Service Account creation
-Kalyans-MacBook-Pro:08-01-Load-Balancer-Controller-Install kdaida$ eksctl create iamserviceaccount \
+subham$ eksctl create iamserviceaccount \
 >   --cluster=eksdemo1 \
 >   --namespace=kube-system \
 >   --name=aws-load-balancer-controller \
@@ -213,7 +213,7 @@ Kalyans-MacBook-Pro:08-01-Load-Balancer-Controller-Install kdaida$ eksctl create
 2022-02-02 10:23:10 [ℹ]  waiting for CloudFormation stack "eksctl-eksdemo1-addon-iamserviceaccount-kube-system-aws-load-balancer-controller"
 2022-02-02 10:23:29 [ℹ]  waiting for CloudFormation stack "eksctl-eksdemo1-addon-iamserviceaccount-kube-system-aws-load-balancer-controller"
 2022-02-02 10:23:32 [ℹ]  created serviceaccount "kube-system/aws-load-balancer-controller"
-Kalyans-MacBook-Pro:08-01-Load-Balancer-Controller-Install kdaida$ 
+subham$ 
 ```
 
 ### Step-03-02: Verify using eksctl cli
@@ -222,12 +222,12 @@ Kalyans-MacBook-Pro:08-01-Load-Balancer-Controller-Install kdaida$
 eksctl  get iamserviceaccount --cluster eksdemo1
 
 # Sample Output
-Kalyans-MacBook-Pro:08-01-Load-Balancer-Controller-Install kdaida$ eksctl  get iamserviceaccount --cluster eksdemo1
+subham$ eksctl  get iamserviceaccount --cluster eksdemo1
 2022-02-02 10:23:50 [ℹ]  eksctl version 0.82.0
 2022-02-02 10:23:50 [ℹ]  using region us-east-1
 NAMESPACE	NAME				ROLE ARN
 kube-system	aws-load-balancer-controller	arn:aws:iam::180789647333:role/eksctl-eksdemo1-addon-iamserviceaccount-kube-Role1-1244GWMVEAKEN
-Kalyans-MacBook-Pro:08-01-Load-Balancer-Controller-Install kdaida$ 
+subham$ 
 ```
 
 ### Step-03-03: Verify CloudFormation Template eksctl created & IAM Role
@@ -252,7 +252,7 @@ kubectl describe sa aws-load-balancer-controller -n kube-system
 - **Output**
 ```t
 ## Sample Output
-Kalyans-MacBook-Pro:08-01-Load-Balancer-Controller-Install kdaida$ kubectl describe sa aws-load-balancer-controller -n kube-system
+subham$ kubectl describe sa aws-load-balancer-controller -n kube-system
 Name:                aws-load-balancer-controller
 Namespace:           kube-system
 Labels:              app.kubernetes.io/managed-by=eksctl
@@ -261,7 +261,7 @@ Image pull secrets:  <none>
 Mountable secrets:   aws-load-balancer-controller-token-5w8th
 Tokens:              aws-load-balancer-controller-token-5w8th
 Events:              <none>
-Kalyans-MacBook-Pro:08-01-Load-Balancer-Controller-Install kdaida$ 
+subham$ 
 ```
 
 ## Step-04: Install the AWS Load Balancer Controller using Helm V3 
@@ -317,7 +317,7 @@ helm install aws-load-balancer-controller eks/aws-load-balancer-controller \
 - **Sample output for AWS Load Balancer Controller Install steps**
 ```t
 ## Sample Ouput for AWS Load Balancer Controller Install steps
-Kalyans-MacBook-Pro:08-01-Load-Balancer-Controller-Install kdaida$ helm install aws-load-balancer-controller eks/aws-load-balancer-controller \
+subham$ helm install aws-load-balancer-controller eks/aws-load-balancer-controller \
 >   -n kube-system \
 >   --set clusterName=eksdemo1 \
 >   --set serviceAccount.create=false \
@@ -333,7 +333,7 @@ REVISION: 1
 TEST SUITE: None
 NOTES:
 AWS Load Balancer controller installed!
-Kalyans-MacBook-Pro:08-01-Load-Balancer-Controller-Install kdaida$ 
+subham$ 
 ```
 ### Step-04-03: Verify that the controller is installed and Webhook Service created
 ```t
@@ -343,10 +343,10 @@ kubectl -n kube-system get deployment aws-load-balancer-controller
 kubectl -n kube-system describe deployment aws-load-balancer-controller
 
 # Sample Output
-Kalyans-MacBook-Pro:08-01-Load-Balancer-Controller-Install kdaida$ kubectl get deployment -n kube-system aws-load-balancer-controller
+subham$ kubectl get deployment -n kube-system aws-load-balancer-controller
 NAME                           READY   UP-TO-DATE   AVAILABLE   AGE
 aws-load-balancer-controller   2/2     2            2           27s
-Kalyans-MacBook-Pro:08-01-Load-Balancer-Controller-Install kdaida$ 
+subham$ 
 
 # Verify AWS Load Balancer Controller Webhook service created
 kubectl -n kube-system get svc 
