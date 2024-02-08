@@ -354,10 +354,10 @@ kubectl -n kube-system get svc aws-load-balancer-webhook-service
 kubectl -n kube-system describe svc aws-load-balancer-webhook-service
 
 # Sample Output
-Kalyans-MacBook-Pro:aws-eks-kubernetes-masterclass-internal kdaida$ kubectl -n kube-system get svc aws-load-balancer-webhook-service
+subham:aws-eks-kubernetes-masterclass-internal kdaida$ kubectl -n kube-system get svc aws-load-balancer-webhook-service
 NAME                                TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)   AGE
 aws-load-balancer-webhook-service   ClusterIP   10.100.53.52   <none>        443/TCP   61m
-Kalyans-MacBook-Pro:aws-eks-kubernetes-masterclass-internal kdaida$ 
+subham:aws-eks-kubernetes-masterclass-internal kdaida$ 
 
 # Verify Labels in Service and Selector Labels in Deployment
 kubectl -n kube-system get svc aws-load-balancer-webhook-service -o yaml
