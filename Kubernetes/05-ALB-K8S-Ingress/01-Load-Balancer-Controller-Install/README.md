@@ -175,7 +175,7 @@ eksctl create iamserviceaccount \
   --cluster=my_cluster \
   --namespace=kube-system \
   --name=aws-load-balancer-controller \ #Note:  K8S Service Account Name that need to be bound to newly created IAM Role
-  --attach-policy-arn=arn:aws:iam::111122223333:policy/AWSLoadBalancerControllerIAMPolicy \
+  --attach-policy-arn=arn:aws:iam::393509063066:policy/AWSLoadBalancerControllerIAMPolicy \
   --override-existing-serviceaccounts \
   --approve
 
@@ -185,7 +185,7 @@ eksctl create iamserviceaccount \
   --cluster=eksdemo1 \
   --namespace=kube-system \
   --name=aws-load-balancer-controller \
-  --attach-policy-arn=arn:aws:iam::180789647333:policy/AWSLoadBalancerControllerIAMPolicy \
+  --attach-policy-arn=arn:aws:iam::393509063066:policy/AWSLoadBalancerControllerIAMPolicy \
   --override-existing-serviceaccounts \
   --approve
 ```
@@ -196,7 +196,7 @@ subham$ eksctl create iamserviceaccount \
 >   --cluster=eksdemo1 \
 >   --namespace=kube-system \
 >   --name=aws-load-balancer-controller \
->   --attach-policy-arn=arn:aws:iam::180789647333:policy/AWSLoadBalancerControllerIAMPolicy \
+>   --attach-policy-arn=arn:aws:iam::393509063066:policy/AWSLoadBalancerControllerIAMPolicy \
 >   --override-existing-serviceaccounts \
 >   --approve
 2022-02-02 10:22:49 [ℹ]  eksctl version 0.82.0
@@ -226,7 +226,7 @@ subham$ eksctl  get iamserviceaccount --cluster eksdemo1
 2022-02-02 10:23:50 [ℹ]  eksctl version 0.82.0
 2022-02-02 10:23:50 [ℹ]  using region us-east-1
 NAMESPACE	NAME				ROLE ARN
-kube-system	aws-load-balancer-controller	arn:aws:iam::180789647333:role/eksctl-eksdemo1-addon-iamserviceaccount-kube-Role1-1244GWMVEAKEN
+kube-system	aws-load-balancer-controller	arn:aws:iam::393509063066:role/eksctl-eksdemo1-addon-iamserviceaccount-kube-Role1-1244GWMVEAKEN
 subham$ 
 ```
 
@@ -256,7 +256,7 @@ subham$ kubectl describe sa aws-load-balancer-controller -n kube-system
 Name:                aws-load-balancer-controller
 Namespace:           kube-system
 Labels:              app.kubernetes.io/managed-by=eksctl
-Annotations:         eks.amazonaws.com/role-arn: arn:aws:iam::180789647333:role/eksctl-eksdemo1-addon-iamserviceaccount-kube-Role1-1244GWMVEAKEN
+Annotations:         eks.amazonaws.com/role-arn: arn:aws:iam::393509063066:role/eksctl-eksdemo1-addon-iamserviceaccount-kube-Role1-1244GWMVEAKEN
 Image pull secrets:  <none>
 Mountable secrets:   aws-load-balancer-controller-token-5w8th
 Tokens:              aws-load-balancer-controller-token-5w8th
