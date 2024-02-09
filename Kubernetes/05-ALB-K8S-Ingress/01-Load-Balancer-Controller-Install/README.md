@@ -106,8 +106,8 @@ kubectl get nodes
 - [AWS Load Balancer Controller Main Git repo](https://github.com/kubernetes-sigs/aws-load-balancer-controller)
 ```t
 # Change Directroy
-cd 08-NEW-ELB-Application-LoadBalancers/
-cd 08-01-Load-Balancer-Controller-Install
+cd 05-ALB-K8S-Ingress/
+cd 01-Load-Balancer-Controller-Install
 
 # Delete files before download (if any present)
 rm iam_policy_latest.json
@@ -483,7 +483,7 @@ helm uninstall aws-load-balancer-controller -n kube-system
 
 
 ## Step-06: Review IngressClass Kubernetes Manifest
-- **File Location:** `08-01-Load-Balancer-Controller-Install/kube-manifests/01-ingressclass-resource.yaml`
+- **File Location:** `01-Load-Balancer-Controller-Install/kube-manifests/01-ingressclass-resource.yaml`
 - Understand in detail about annotation `ingressclass.kubernetes.io/is-default-class: "true"`
 ```yaml
 apiVersion: networking.k8s.io/v1
@@ -504,7 +504,7 @@ spec:
 ## Step-07: Create IngressClass Resource
 ```t
 # Navigate to Directory
-cd 08-01-Load-Balancer-Controller-Install
+cd 01-Load-Balancer-Controller-Install
 
 # Create IngressClass Resource
 kubectl apply -f kube-manifests
