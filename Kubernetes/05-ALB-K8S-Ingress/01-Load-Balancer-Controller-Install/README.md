@@ -135,7 +135,7 @@ subham$ aws iam create-policy \
     "Policy": {
         "PolicyName": "AWSLoadBalancerControllerIAMPolicy",
         "PolicyId": "ANPASUF7HC7S52ZQAPETR",
-        "Arn": "arn:aws:iam::180789647333:policy/AWSLoadBalancerControllerIAMPolicy",
+        "Arn": "arn:aws:iam::393509063066:policy/AWSLoadBalancerControllerIAMPolicy",
         "Path": "/",
         "DefaultVersionId": "v1",
         "AttachmentCount": 0,
@@ -153,7 +153,7 @@ subham$
 - Make a note of Policy ARN as we are going to use that in next step when creating IAM Role.
 ```t
 # Policy ARN 
-Policy ARN:  arn:aws:iam::180789647333:policy/AWSLoadBalancerControllerIAMPolicy
+Policy ARN:  arn:aws:iam::393509063066:policy/AWSLoadBalancerControllerIAMPolicy
 ```
 
 
@@ -269,8 +269,10 @@ subham$
 - [Install Helm](https://helm.sh/docs/intro/install/) if not installed
 - [Install Helm for AWS EKS](https://docs.aws.amazon.com/eks/latest/userguide/helm.html)
 ```t
-# Install Helm (if not installed) MacOS
-brew install helm
+# Install Helm (if not installed) Linux
+curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 > get_helm.sh
+chmod 700 get_helm.sh
+./get_helm.sh
 
 # Verify Helm version
 helm version
