@@ -38,22 +38,22 @@ eksctl create cluster --name=eksdemo1 \
                       --without-nodegroup 
 
 
-# Get List of clusters (Section-01-02)
+# Get List of clusters 
 eksctl get cluster   
 
-# Template (Section-01-02)
+# Template 
 eksctl utils associate-iam-oidc-provider \
     --region region-code \
     --cluster <cluter-name> \
     --approve
 
-# Replace with region & cluster name (Section-01-02)
+# Replace with region & cluster name 
 eksctl utils associate-iam-oidc-provider \
     --region us-east-1 \
     --cluster eksdemo1 \
     --approve
 
-# Create EKS NodeGroup in VPC Private Subnets (Section-07-01)
+# Create EKS NodeGroup in VPC Private Subnets 
 eksctl create nodegroup --cluster=eksdemo1 \
                         --region=us-east-1 \
                         --name=eksdemo1-ng-private1 \
