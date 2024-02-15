@@ -30,12 +30,11 @@ https://docs.aws.amazon.com/eks/latest/userguide/install-kubectl.html
 ```
 ### Pre-requisite-2: Create EKS Cluster and Worker Nodes (if not created)
 ```t
-# Create Cluster (Section-01-02)
+# Create Cluster
 eksctl create cluster --name=eksdemo1 \
                       --region=us-east-1 \
                       --zones=us-east-1a,us-east-1b \
-                      --version="1.21" \
-                      --without-nodegroup 
+                      --without-nodegroup
 
 
 # Get List of clusters 
