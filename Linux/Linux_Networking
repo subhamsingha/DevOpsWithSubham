@@ -1,0 +1,54 @@
+Linux Networking
+----------------
+
+1. Network Interfaces:
+Network interfaces, also known as network cards or NICs, are hardware devices used to connect a computer to a network. In Linux, network interfaces are represented as devices under the /sys/class/net directory. Common commands for managing network interfaces include:
+
+ifconfig - Used to configure network interfaces (deprecated in favor of ip command).
+ip - A powerful tool for configuring network interfaces, routing, and more.
+iwconfig - Used to configure wireless network interfaces.
+
+2. IP Addressing:
+IP (Internet Protocol) addressing is a fundamental aspect of networking, allowing devices to communicate with each other over a network. In Linux, IP addresses are assigned to network interfaces. Key commands for IP addressing include:
+
+ifconfig - Used to view and configure IP addresses (deprecated).
+ip addr - View and manipulate IP addresses associated with network interfaces.
+ifconfig <interface> <ip_address> - Assign an IP address to a network interface.
+ip route - Display and manipulate the IP routing table.
+
+3. Network Configuration Files:
+Linux systems typically use configuration files to manage network settings. Some common configuration files include:
+
+/etc/network/interfaces (Debian-based systems) - Contains network interface configuration settings.
+/etc/sysconfig/network-scripts/ifcfg-<interface> (Red Hat-based systems) - Contains network interface configuration settings.
+/etc/resolv.conf - Contains DNS (Domain Name System) resolver configuration.
+/etc/hosts - Maps IP addresses to hostnames.
+
+4. DNS (Domain Name System):
+DNS is a system used to translate domain names (e.g., www.example.com) into IP addresses. Linux systems use DNS resolvers to perform DNS lookups and resolve domain names. Key commands and files related to DNS include:
+
+nslookup or dig - Used to perform DNS lookups and query DNS servers.
+/etc/resolv.conf - Contains DNS resolver configuration.
+
+5. Routing and Firewall:
+Routing is the process of directing network traffic between different networks. Firewalls are used to control network traffic by allowing or blocking specific types of traffic. Key components and commands related to routing and firewall include:
+
+ip route - Used to manage the IP routing table.
+iptables - A powerful tool for configuring firewall rules (deprecated in favor of nftables).
+nft or nftables - The successor to iptables, used for configuring firewall rules in newer Linux distributions.
+/etc/sysconfig/iptables (Red Hat-based systems) - Contains firewall rules.
+
+6. Network Services:
+Linux systems can host various network services, such as web servers, FTP servers, SSH servers, and more. These services communicate over the network using specific protocols (e.g., HTTP, FTP, SSH). Common network services include:
+
+Apache HTTP Server (httpd) - A popular web server software.
+OpenSSH Server (sshd) - Provides secure shell (SSH) access to the system.
+vsftpd - A lightweight and secure FTP server for Linux.
+
+7. Network Troubleshooting:
+Network troubleshooting is the process of identifying and resolving issues related to network connectivity or performance. Common tools and techniques for network troubleshooting on Linux include:
+
+ping - Used to test network connectivity by sending ICMP echo requests.
+traceroute - Traces the route that packets take to reach a destination.
+netstat or ss - Displays network connections, routing tables, and interface statistics.
+tcpdump or wireshark - Packet sniffers used to capture and analyze network traffic.
